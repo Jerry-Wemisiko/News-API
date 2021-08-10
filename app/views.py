@@ -8,4 +8,6 @@ def index():
     View root page function that returns the index page and its data
     '''
     title = 'Welcome to News Api'
-    return render_template('index.html',title = title)
+    return render_template('index.html',title = title)  
+
+# @app.route('')
