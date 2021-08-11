@@ -1,9 +1,10 @@
+import os
+
 class Config:
     '''
     General configuration parent class
     '''
     NEWS_API_BASE_URL = 'https://newsapi.org/v2/everything?q=tesla&from=2021-07-10&sortBy=publishedAt&apiKey={}'
-    pass
 
 
 class ProdConfig(Config):
@@ -26,10 +27,9 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-
-
-
-    pass
-
-    
     DEBUG = True
+    
+config_options={
+'development':DevConfig,
+'production':ProdConfig
+}

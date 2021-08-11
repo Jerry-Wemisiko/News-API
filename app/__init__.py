@@ -1,11 +1,14 @@
 from flask import Flask
-from flask_bootsrap import Bootstrap
+from flask_bootstrap import Bootstrap
+from config import config_options
 
+bootsrap = Bootstrap()
 
+def create_app(config_name):
 
-app = Flask(__name__ ,instance_relative_config = True)
+    app = Flask(__name__ )
 
-#flask extensions
-bootsrap = Bootstrap(app)
+    #flask extensions
+    bootsrap.init_app(app)
 
-from app import views
+    return app
