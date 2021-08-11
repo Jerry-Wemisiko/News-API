@@ -41,12 +41,44 @@ def process_sources(source_list):
         url = source_item.get('url')
         
         if id:
-            source_object = NewsSource(id,name,description,url)
+            source_object = Source(id,name,description,url)
 
             source_results.append(source_object)
 
         return source_results
 
+def  get_articles(id):
+    articles_base_url='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+    print(articles_base_url)
+
+    with urllib.request.urlopen(articles_base_url) as url:
+        articles_data = url.read()
+        articles_response = json.loads(articles_data)
+
+        articles_results = None
+
+        if articles_response['articles']:
+            articles_list = articles_response['articles']
+            article_results = process_article_results(articles_list)
+
+    return article_results
+
+def process_article_results(articles_list):
+    
+    articles_source_results = []
+
+    for article_item in articles_list:
+        title = article_item.get('title')
+        description = article_item.get('description')
+        url = article_item.get('url')
+        urlToImage = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
+
+    if url:
+        article_object = Article(title,description,url,urlToImage,publishedAt)
+        articles_source_results.append(article_object)
+
+    return articles_source_results
     
 
 
