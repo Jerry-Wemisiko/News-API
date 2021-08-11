@@ -1,6 +1,3 @@
-from app.newssource_test import NewsSource
-from os import getgrouplist
-from app import app
 import urllib.request,json
 from .models import Article,Source
 

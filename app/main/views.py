@@ -1,29 +1,29 @@
-from app.request import article_category, get_articles, get_source
-from flask import render_template,request
+from ..request import article_category, get_articles, get_source
+from flask import render_template,request,redirect,url_for
 from . import main
-from ..request import get_articles,get_source,article_category
-from app import app
+
+
 
 #Views
-@main.app.route('/')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data
     '''
     title = 'Welcome to News Api'
-    newssource = get_source()
-    return render_template('index.html',title = title,newssource= newssource)
+    source = get_source()
+    return render_template('index.html',title = title,source= source)
 
-@main.app('/article/<id>')
+@main.route('/article/<id>')
 def article(id):
     
     articles = get_articles(id)
     return render_template('article.html',articles =articles,id = id)
 
-@main.app('category<name>')
+@main.route('/category/<name>')
 def category(name):
 
     category = article_category(name)
     # title = f'name'
 
-    return render_template('category.html',category=category)
+    return render_template('category.html',category=category,name=name)
