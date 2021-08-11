@@ -1,4 +1,4 @@
-class NewsSource:
+class Source:
     '''
     News source class to define source object of news
     '''
@@ -18,5 +18,14 @@ class Article:
         self.url = url
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
-    
- 
+
+class Category:
+    '''
+    category class to define category object of the articles
+    '''
+    def __init__(self,title,description,url,urlToImage,publishedAt):
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt

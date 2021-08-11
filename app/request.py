@@ -5,11 +5,24 @@ import urllib.request,json
 from .models import Article,Source
 
 
+# Getting api key
 api_key = None
 
+# Getting the news base url
 base_url= None
 
-def get_source(category):
+#Category url from source
+name_cat_url = None
+
+
+def configure_request(app):
+    global api_key,base_url,name_cat_url
+    
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config[' NEWS_API_BASE_URL']
+    name_cat_url = app.config['NEWS_CAT_API_URL']
+
+def get_source():
 
     get_source_url = base_url.format(category,api_key)
 
@@ -59,9 +72,9 @@ def  get_articles(id):
 
         if articles_response['articles']:
             articles_list = articles_response['articles']
-            article_results = process_article_results(articles_list)
+            articles_results = process_article_results(articles_list)
 
-    return article_results
+    return articles_results
 
 def process_article_results(articles_list):
     
@@ -79,6 +92,25 @@ def process_article_results(articles_list):
         articles_source_results.append(article_object)
 
     return articles_source_results
+
+def article_category(name):
+
+    article_category = name_cat_url.format(name,api_key)
+    print(article_category)
+    with urllib.request.urlopen(article_category) as url:
+        article_category_data = url.read()
+        article_category_response =json.loads(article_category_data)
+
+        article_category_results = None
+
+        if article_category_response['articles']:
+            article_category_list = article_category_response['articles']
+            article_category_results = process_article_results(article_category_list)
+
+    return article_category_results
+
+
+
     
 
 
