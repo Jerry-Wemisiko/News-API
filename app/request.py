@@ -16,12 +16,12 @@ def configure_request(app):
     global api_key,base_url,name_cat_url
     
     api_key = app.config['NEWS_API_KEY']
-    base_url = app.config[' NEWS_API_BASE_URL']
+    base_url = app.config['NEWS_API_BASE_URL']
     name_cat_url = app.config['NEWS_CAT_API_URL']
 
 def get_source():
 
-    get_source_url = base_url.format(category,api_key)
+    get_source_url = base_url.format(api_key)
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
