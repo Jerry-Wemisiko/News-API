@@ -5,15 +5,14 @@
 ## Description
 A web application that renders sources of news across the globe.As a user you'll be able to select a news source and it will display top healines.Hence you can click a read more to get more information about the article
 
-## SetUp / Installation Requirements
-### Prerequisites
- python3
- pip
- virtualenv
+## SetUp
+* Python3
+* Pip
+* Virtualenv
 
 ## Technologies Used
-Python3
-FlaskS
+* Python3
+* FlaskS
 
 ## License
 The MIT License (MIT)
