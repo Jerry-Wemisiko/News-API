@@ -3,7 +3,7 @@
 <body>
     <div class="jumbotron">
         <h1>Category</h1>
-        {% for article %}
+        {% for category in category %}
         <div class="card">
             <img src="{{category.image}}" alt="" class="card-img-top">
             <div class="card-body">
@@ -20,4 +20,4 @@
         {% endfor %}
     </div>
     {% endblock %}
-</body>
+</body>article
