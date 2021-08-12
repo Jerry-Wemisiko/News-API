@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Article,Source,Category
+from .models import Article,Source,Category,Headlines
 
 
 # Getting api key
@@ -22,6 +22,7 @@ def configure_request(app):
 def get_source():
 
     get_source_url = base_url.format(api_key)
+    print(get_source_url)
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
@@ -55,7 +56,7 @@ def process_sources(source_list):
 
             source_results.append(source_object)
 
-        return source_results
+    return source_results
 
 def  get_articles(id):
     articles_base_url='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
@@ -107,8 +108,10 @@ def article_category(name):
     return article_category_results
 
 def article_headlines():
+
     article_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(api_key)
     print(article_headlines_url)
+
     with urllib.request.urlopen(article_headlines_url) as url:
         articles_headlines_data = url.read()
         article_headlines_response = json.loads(articles_headlines_data) 

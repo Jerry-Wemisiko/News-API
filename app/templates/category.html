@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% block content %}
+<body>
+    <div class="jumbotron">
+        <h1>Category</h1>
+        {% for article %}
+        <div class="card">
+            <img src="{{category.image}}" alt="" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title">{{category.title}}</h4>
+                <p class="card-text">{{category.description}}</p>
+                <a href="{{category.url}}">
+                    <button>READ MORE</button>
+                </a>
+            </div>
+            <div class="card-footer">
+                <p>This was published on <small>{{category.publishedAt}}</small></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
