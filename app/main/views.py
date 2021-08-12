@@ -1,4 +1,4 @@
-from ..request import article_category, get_articles, get_source
+from ..request import article_category, article_headlines, get_articles, get_source
 from flask import render_template,request,redirect,url_for
 from . import main
 
@@ -12,7 +12,8 @@ def index():
     '''
     title = 'Welcome to News Api'
     source = get_source()
-    return render_template('index.html',title = title,source= source)
+    headlines = article_headlines()
+    return render_template('index.html',title = title,source= source,headlines = headlines)
 
 @main.route('/article/<id>')
 def article(id):
@@ -27,3 +28,4 @@ def category(name):
     # title = f'name'
 
     return render_template('category.html',category=category,name=name)
+
