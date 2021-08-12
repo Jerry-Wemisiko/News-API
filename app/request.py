@@ -22,7 +22,6 @@ def configure_request(app):
 def get_source():
 
     get_source_url = base_url.format(api_key)
-    print(get_source_url)
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()

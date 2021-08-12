@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     {% if title %}
-    <title>{{ title }}}</title>
+    <title>{{ title }}</title>
     {% else %}
     <title>Welcome to News Api</title>
     {% endif %}
 </head>
 <body>  
+    {% for source in source %}
+  <h5>{{source.id}}</h5>
+
+
+    {% endfor %}
 </body>
 </html>
