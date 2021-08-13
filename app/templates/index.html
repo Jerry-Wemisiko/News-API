@@ -10,9 +10,18 @@
 </head>
 <body>  
     {% for source in source %}
-  <h5>{{source.id}}</h5>
-
-
+    <div class="container">
+        <h2>{{source.id}}</h2>
+        <div class="row">
+            <div class="col-6 col-md-4">
+                <p>{{source.name}}</p>
+            </div>
+            <div class="col-6 col-md-4">
+                <p>{{source.description}}</p>
+            </div>
+            
+          </div>
+    </div>
     {% endfor %}
 </body>
 </html>
