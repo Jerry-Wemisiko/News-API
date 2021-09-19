@@ -10,21 +10,44 @@
     <title>Welcome to News Api</title>
     {% endif %}
 </head>
+<style>
+    .source{
+        float: left;
+        width: 30.33;
+        padding: 30px;
+        margin: 5px;
+    }
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
 <body>  
-    {% for source in source %}
     <div class="container">
-        <h2>{{source.id}}</h2>
-        <div class="row">
-            <div class="col-6 col-md-4">
-                <p>{{source.name}}</p>
-            </div>
-            <div class="col-6 col-md-4">
-                <p>{{source.description}}</p>
-            </div>
-            
-          </div>
-    </div>
-    {% endfor %}
+        <h3 class="text-center" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 700;">Welcome to News Application</h3>
+        {% for source in source %}
+        <div class="row source" >
+              <div class="card" style="width: 18rem; background-color: #C8A2C8; width: 300px; height: 300px; padding: 5px; border-radius: 5px;">
+                <div class="card-body">
+                    <h4 class="card-title" style="font-family: cursive; font-weight: 700; font-size: 20px; text-align: center;color: black;text-transform: capitalize;">{{source.id}}</h4>
+                    <div class="card" style="padding: 10px; ">
+                        <strong><em>  <h5 class="card-subtitle mb-2 text-muted text-center">{{source.name}}</h5></em></strong>  
+                        <p class="card-text ">{{source.description}}</p>
+      
+                    </div>
+                </div>
+                <div class="card-footer text-center"style="overflow:none;">
+                    <button type="button" class="btn btn-primary btn-sm" style="background-color: orangered;">View here</button>
+                </div>
+              </div>
+ 
+        </div>
+        {% endfor %}
+
+       
+    
+    
 </body>
 </html>
 {% endblock %}
