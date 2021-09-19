@@ -11,11 +11,19 @@
     {% endif %}
 </head>
 <style>
+ body{
+     background-color:#C8A2C8 ;
+ }
+ .container{
+    background-color: #d1edf2 ;
+ }
     .source{
         float: left;
         width: 30.33;
         padding: 30px;
-        margin: 5px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
     }
     .row::after {
     content: "";
@@ -25,7 +33,7 @@
 </style>
 <body>  
     <div class="container">
-        <h3 class="text-center" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 700;">Welcome to News Application</h3>
+        <h3 class="text-center" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 700; color: #C8A2C8;">Welcome to News Application</h3>
         {% for source in source %}
         <div class="row source" >
               <div class="card" style="width: 18rem; background-color: #C8A2C8; width: 300px; height: 300px; padding: 5px; border-radius: 5px;">
