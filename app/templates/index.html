@@ -2,6 +2,7 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     {% if title %}
@@ -11,15 +12,16 @@
     {% endif %}
 </head>
 <style>
- /* body{
+    /* body{
      background-image:url(/static/img/denys-nevozhai-wgtJfd2Jhnk-unsplash.jpg);
      background-size:initial;
      background-repeat: repeat;
  } */
- .container{
-     background-image: url(/static/img/annie-spratt-V9s1UjhQFZY-unsplash.jpg);
- }
-    .source{
+    body{
+        background-image: url(/static/img/annie-spratt-V9s1UjhQFZY-unsplash.jpg);
+    }
+
+    .source {
         float: left;
         width: 30.33;
         padding: 30px;
@@ -27,37 +29,47 @@
         justify-content: center;
         align-items: center;
     }
+
     .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+        content: "";
+        clear: both;
+        display: table;
+    }
 </style>
-<body>  
-    <div class="container">
-        <h3 class="text-center" style="font-family: cursive; font-weight:bolder; color: #ffffff; font-size: 60px;">Welcome to News Application</h3>
-        {% for source in source %}
-        <div class="row source" >
-              <div class="card" style="width: 18rem; background-color: #C8A2C8; width: 300px; height: 300px; padding: 5px; border-radius: 5px;">
+
+
+    <div class="grid_container src">
+        <h3 class="text-center" style="font-family: cursive; font-weight:bolder; color: #ffffff; font-size: 40px;">
+            Welcome to News Application</h3>
+        {% for src in source %}
+        <div class="row source">
+            <div class="card"
+                style="width: 18rem; background-color: #C8A2C8; width: 300px; height: 300px; padding: 5px; border-radius: 5px;">
                 <div class="card-body">
-                    <h4 class="card-title" style="font-family: cursive; font-weight: 700; font-size: 20px; text-align: center;color: black;text-transform: capitalize;">{{source.id}}</h4>
+                    <h4 class="card-title"
+                        style="font-family: cursive; font-weight: 700; font-size: 20px; text-align: center;color: black;text-transform: capitalize;">
+                        {{src.id}}</h4>
                     <div class="card" style="padding: 10px; ">
-                        <strong><em>  <h5 class="card-subtitle mb-2 text-muted text-center">{{source.name}}</h5></em></strong>  
-                        <p class="card-text ">{{source.description}}</p>
-      
+                        <strong><em>
+                                <h5 class="card-subtitle mb-2 text-muted text-center">{{src.name}}</h5>
+                            </em></strong>
+                        <p class="card-text ">{{src.description}}</p>
+
                     </div>
                 </div>
-                <div class="card-footer text-center"style="overflow:none;">
-                    <button type="button" class="btn btn-primary btn-sm" style="background-color: orangered;">View here</button>
+                <div class="card-footer text-center" style="overflow:none;">
+                    <a href=" {{ url_for('main.article')}}" class="w3-bar-item w3-button"><button type="submit" class="btn btn-success" >View here</button> </a>
+
                 </div>
-              </div>
- 
+            </div>
+
         </div>
         {% endfor %}
 
-       
-    
-    
+
+
+
 </body>
+
 </html>
 {% endblock %}
