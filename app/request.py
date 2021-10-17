@@ -57,8 +57,8 @@ def process_sources(source_list):
 
     return source_results
 
-def  get_articles():
-    articles_base_url='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+def  get_articles(source_id):
+    articles_base_url='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(source_id,api_key)
     print(articles_base_url)
 
     with urllib.request.urlopen(articles_base_url) as url:

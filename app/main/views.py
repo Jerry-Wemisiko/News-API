@@ -15,11 +15,11 @@ def index():
     headlines = article_headlines()
     return render_template('index.html',title = title,source= source,headlines = headlines)
 
-@main.route('/article/')
-def article(id):
+@main.route('/article/<source_id>')
+def article(source_id):
     
-    articles = get_articles()
-    return render_template('article.html',articles =articles)
+    articles = get_articles(source_id)
+    return render_template('article.html',articles =articles,source_id=source_id)
 
 @main.route('/category/<name>')
 def category(name):
